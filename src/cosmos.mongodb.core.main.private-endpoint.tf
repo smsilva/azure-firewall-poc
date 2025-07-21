@@ -5,7 +5,7 @@ resource "azurerm_private_endpoint" "cosmosdb_account_core" {
   subnet_id           = azurerm_subnet.spoke_core_databases.id
 
   private_service_connection {
-    name                           = "core-main-cosmosdb-account-private-service-connection"
+    name                           = "cosmos-mongodb-connection"
     private_connection_resource_id = azurerm_cosmosdb_account.core_main.id
     subresource_names              = ["MongoDB"]
     is_manual_connection           = false
