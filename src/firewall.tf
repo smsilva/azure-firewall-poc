@@ -1,5 +1,5 @@
 locals {
-  firewall_name = "cloud-poc"
+  firewall_name = "wasp-fw"
 }
 
 resource "azurerm_public_ip" "firewall" {
