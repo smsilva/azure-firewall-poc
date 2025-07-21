@@ -4,23 +4,17 @@
 
 ```bash
 sudo apt install -y dnsutils traceroute netcat curl tmux && tmux
+```
 
-nslookup        ashycliff-6d0e0fd0.eastus.azurecontainerapps.io
-nslookup  app-1.ashycliff-6d0e0fd0.eastus.azurecontainerapps.io
+```bash
+nslookup        wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
+nslookup  app-1.wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
 
-nc -dv -w 3 10.0.1.202 443
+curl -I --connect-timeout 3 https://app-1.wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
+curl -I --connect-timeout 3 https://app-1.wonderfulhill-f70136a2.eastus.azurecontainerapps.io
+curl -I --connect-timeout 3 https://app-1.victoriousgrass-9f0429f9.eastus.azurecontainerapps.io
 
-traceroute 10.0.1.202
-
-curl -I --connect-timeout 3 https://app-1.ashycliff-6d0e0fd0.eastus.azurecontainerapps.io
-curl -I --connect-timeout 3 https://app-1.gentlegrass-121cd74d.eastus.azurecontainerapps.io
-curl -I --connect-timeout 3 https://app-1.ambitiouswater-a7a0e1ba.eastus.azurecontainerapps.io
-
-curl -I  --connect-timeout 3 -H "Host: app-1.ambitiouswater-a7a0e1ba.eastus.azurecontainerapps.io" http://10.0.1.202
-
-vm-spoke-core 10.0.0.4
-vm-spoke-1    10.1.0.4
-vm-spoke-2    10.2.0.4
+curl -I  --connect-timeout 3 -H "Host: app-1.victoriousgrass-9f0429f9.eastus.azurecontainerapps.io" http://10.0.1.202
 
 nc -dv -w 3 10.0.0.4 80
 nc -dv -w 3 10.1.0.4 80
@@ -34,23 +28,20 @@ tdnf update -y
 tdnf install -y tar bind-utils
 ```
 
-
 ## Comandos para testar MongoDB
 
 ```bash
-curl -k https://downloads.mongodb.com/compass/mongosh-2.5.5-linux-x64.tgz --output mongosh-2.5.5-linux-x64.tgz
+curl \
+  --insecure https://downloads.mongodb.com/compass/mongosh-2.5.5-linux-x64.tgz \
+  --output mongosh-2.5.5-linux-x64.tgz
 
 tar -xzf mongosh-2.5.5-linux-x64.tgz
 
 export PATH=${PATH}:$PWD/mongosh-2.5.5-linux-x64/bin
 
-MONGODB_CONNECTION_STRING=""
+MONGODB_CONNECTION_STRING="mongodb://wasp-cloud-poc-joint-gazelle-core-main:REDACTED_CREDENTIAL_HERE@wasp-cloud-poc-joint-gazelle-core-main.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@wasp-cloud-poc-joint-gazelle-core-main@"
 
 mongosh "${MONGODB_CONNECTION_STRING}" --eval 'db.createCollection("posts")'
-
-db.createCollection("posts")
-
-db.posts.insertOne({ text: "this is an example", author: "Moisés" })
-
-db.posts.find({})
+mongosh "${MONGODB_CONNECTION_STRING}" --eval 'db.posts.insertOne({ text: "this is an example", author: "Moisés" })'
+mongosh "${MONGODB_CONNECTION_STRING}" --eval 'db.posts.find({})'
 ```
