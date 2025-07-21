@@ -1,20 +1,3 @@
-locals {
-  public_outbound_ips = [
-    "201.80.161.224"
-  ]
-
-  azure_firewall_portal_ips = [
-    "13.88.56.148",
-    "13.91.105.215",
-    "13.95.130.121",
-    "20.245.81.54",
-    "4.210.172.107",
-    "40.118.23.126",
-    "40.80.152.199",
-    "40.91.218.243",
-  ]
-}
-
 resource "azurerm_cosmosdb_account" "core_main" {
   name                                  = "${random_pet.resource_group_name.id}-core-main"
   location                              = azurerm_resource_group.core.location
