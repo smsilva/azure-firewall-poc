@@ -35,3 +35,9 @@ variable "admin_username" {
   description = "Value of the admin username."
   default     = "azureuser"
 }
+
+variable "cosmos_mongodb_spoke_1_enabled" {
+  type        = bool
+  description = "Enable Cosmos DB MongoDB account in spoke 1."
+  default     = false
+}

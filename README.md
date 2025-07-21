@@ -7,14 +7,14 @@ sudo apt install -y dnsutils traceroute netcat curl tmux && tmux
 ```
 
 ```bash
-nslookup        wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
-nslookup  app-1.wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
+nslookup        wittyrock-527c4502.eastus.azurecontainerapps.io
+nslookup  app-1.wittyrock-527c4502.eastus.azurecontainerapps.io
 
-curl -I --connect-timeout 3 https://app-1.wonderfulpebble-178d1fa2.eastus.azurecontainerapps.io
-curl -I --connect-timeout 3 https://app-1.wonderfulhill-f70136a2.eastus.azurecontainerapps.io
-curl -I --connect-timeout 3 https://app-1.victoriousgrass-9f0429f9.eastus.azurecontainerapps.io
+curl -I --connect-timeout 3 https://app-1.wittyrock-527c4502.eastus.azurecontainerapps.io
+curl -I --connect-timeout 3 https://app-1.politedesert-43ee8ea9.eastus.azurecontainerapps.io
+curl -I --connect-timeout 3 https://app-1.delightfulriver-1e65689f.eastus.azurecontainerapps.io
 
-curl -I  --connect-timeout 3 -H "Host: app-1.victoriousgrass-9f0429f9.eastus.azurecontainerapps.io" http://10.0.1.202
+curl -I  --connect-timeout 3 -H "Host: app-1.delightfulriver-1e65689f.eastus.azurecontainerapps.io" http://10.0.1.202
 
 nc -dv -w 3 10.0.0.4 80
 nc -dv -w 3 10.1.0.4 80

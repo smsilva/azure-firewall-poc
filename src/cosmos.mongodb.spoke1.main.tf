@@ -1,4 +1,5 @@
 resource "azurerm_cosmosdb_account" "spoke_1_main" {
+  count                                 = var.cosmos_mongodb_spoke_1_enabled ? 1 : 0
   name                                  = "${random_pet.resource_group_name.id}-spoke-1-main"
   location                              = azurerm_resource_group.spoke_1.location
   resource_group_name                   = azurerm_resource_group.spoke_1.name
