@@ -4,7 +4,7 @@ resource "azurerm_cosmosdb_account" "core_main" {
   resource_group_name                   = azurerm_resource_group.core.name
   offer_type                            = "Standard"
   kind                                  = "MongoDB"
-  mongo_server_version                  = "4.2"
+  mongo_server_version                  = "7.0"
   tags                                  = {}
   network_acl_bypass_for_azure_services = true
   is_virtual_network_filter_enabled     = true
