@@ -29,11 +29,6 @@ resource "azurerm_container_app" "core_app_1" {
     }
   }
 
-  tags = {
-    "Responsible-Team" : "Cloud Eng"
-    "Responsible-Structure" : "Platform"
-  }
-
   depends_on = [
     azurerm_container_app_environment.core,
     azurerm_firewall_policy_rule_collection_group.hub_spoke_default_rules,
@@ -71,11 +66,6 @@ resource "azurerm_container_app" "spoke_1_app_1" {
     }
   }
 
-  tags = {
-    "Responsible-Team" : "Cloud Eng"
-    "Responsible-Structure" : "Platform"
-  }
-
   depends_on = [
     azurerm_container_app_environment.spoke_1,
     azurerm_firewall_policy_rule_collection_group.hub_spoke_default_rules,
@@ -111,11 +101,6 @@ resource "azurerm_container_app" "spoke_2_app_1" {
       latest_revision = true
       percentage      = 100
     }
-  }
-
-  tags = {
-    "Responsible-Team" : "Cloud Eng"
-    "Responsible-Structure" : "Platform"
   }
 
   depends_on = [
