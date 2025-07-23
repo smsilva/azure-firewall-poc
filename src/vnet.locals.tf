@@ -1,7 +1,7 @@
 locals {
   vnets = {
     hub = {
-      name          = "vnet-hub"
+      name          = "hub"
       address_space = "10.255.0.0/16"
 
       subnets = {
@@ -19,7 +19,7 @@ locals {
 
     spokes = {
       core = {
-        name          = "vnet-core"
+        name          = "core"
         address_space = "10.0.0.0/16"
 
         subnets = {
@@ -41,7 +41,7 @@ locals {
       }
 
       1 = {
-        name          = "vnet-spoke-1"
+        name          = "spoke-1"
         address_space = "10.1.0.0/16"
 
         subnets = {
@@ -63,7 +63,7 @@ locals {
       }
 
       2 = {
-        name          = "vnet-spoke-2"
+        name          = "spoke-2"
         address_space = "10.2.0.0/16"
 
         subnets = {

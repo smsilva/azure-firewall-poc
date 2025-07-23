@@ -12,7 +12,7 @@ resource "azurerm_subnet" "hub_firewall" {
   address_prefixes     = [local.vnets.hub.subnets.firewall.address_prefix]
 }
 
-resource "azurerm_subnet" "bastion_subnet" {
+resource "azurerm_subnet" "hub_bastion" {
   name                 = local.vnets.hub.subnets.bastion.name
   resource_group_name  = azurerm_resource_group.default.name
   virtual_network_name = azurerm_virtual_network.hub.name

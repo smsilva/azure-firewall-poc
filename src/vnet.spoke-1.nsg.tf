@@ -1,10 +1,10 @@
 resource "azurerm_network_security_group" "spoke_1_databases" {
-  name                = "spoke-1-databases-nsg"
+  name                = "spoke-1-databases"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
 
   security_rule {
-    name                       = "AllowContainerAppEnvironmentToDatabases"
+    name                       = "AllowTrafficFromContainerAppEnvironment"
     priority                   = 100
     direction                  = "Inbound"
     access                     = "Allow"
