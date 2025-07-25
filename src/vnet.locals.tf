@@ -19,7 +19,7 @@ locals {
 
     spokes = {
       core = {
-        name          = "core"
+        name          = "spoke-core"
         address_space = "10.0.0.0/16"
 
         subnets = {

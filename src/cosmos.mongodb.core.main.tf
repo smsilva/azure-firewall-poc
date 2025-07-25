@@ -6,7 +6,7 @@ resource "azurerm_cosmosdb_account" "core_main" {
   kind                                  = "MongoDB"
   mongo_server_version                  = "7.0"
   tags                                  = {}
-  network_acl_bypass_for_azure_services = true
+  network_acl_bypass_for_azure_services = false
   is_virtual_network_filter_enabled     = true
   public_network_access_enabled         = false
   automatic_failover_enabled            = false

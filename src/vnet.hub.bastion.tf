@@ -4,7 +4,7 @@ resource "azurerm_bastion_host" "hub" {
   resource_group_name = azurerm_resource_group.default.name
 
   ip_configuration {
-    name                 = "public-ip-config"
+    name                 = "public-ip"
     subnet_id            = azurerm_subnet.hub_bastion.id
     public_ip_address_id = azurerm_public_ip.bastion.id
   }
